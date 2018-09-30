@@ -1,0 +1,57 @@
+<div class="bg">
+	<div class="bg-img"></div>
+	<div class="form-container">
+
+		<form class="form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+			<h2>Добро пожаловать в видеокаталог!</h2>
+
+			<div class="form-container">
+				<mat-form-field>
+					<label for="name">Email</label>
+					<input matInput id="name" type="text" formControlName="userName" autocomplete="off" />
+				</mat-form-field>
+
+				<mat-error *ngIf="formErrors.userName" class="error">
+					{{ formErrors.userName}}
+				</mat-error>
+			</div>
+
+			<div class="form-container">
+				<mat-form-field>
+					<label for="name">Password</label>
+					<input matInput id="email" type="password" formControlName="userEmail" />
+				</mat-form-field>
+
+				<mat-error *ngIf="formErrors.userEmail" class="error">
+					{{ formErrors.userEmail}}
+				</mat-error>
+			</div>
+
+			<button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Подтвердить</button>
+		</form>
+	</div>
+
+</div>
+
+
+
+
+
+<!-- <div class="">
+						<form class="login" (ngSubmit)="login()">
+							<section class="title">
+								<h3 class="welcome">Приветствуем Вас на нашем видеоресурсе!</h3>
+					
+					
+							</section>
+							<div class="login-group">
+								<h5 class="hint">авторизируйтесь</h5>
+								<input class="username" type="text" id="login_username" placeholder="Логин" name="name" [(ngModel)]="credentials.username">
+								<input class="password" type="password" id="login_password" placeholder="Пароль" name="password" [(ngModel)]="credentials.password">
+					
+					
+								<button type="submit" class="btn btn-primary">Войти</button>
+								<button class="btn btn-info" (click)="goToRegistration()">Регистрация</button>
+							</div>
+						</form>
+					</div> -->

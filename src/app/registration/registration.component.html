@@ -1,0 +1,118 @@
+<div class="login-wrapper">
+  <form
+    class="login"
+    (ngSubmit)="submitForm()"
+    #form="ngForm"
+  >
+    <section class="title">
+      <h3 class="welcome">Приветствуем Вас</h3>
+      в системе регистрации нового пользователя
+    </section>
+
+    <div class="login-group">
+      <label
+        for="login_username"
+        aria-haspopup="true"
+        role="tooltip"
+        class="tooltip tooltip-validation tooltip-sm"
+        [ngClass]="{invalid: login.invalid && (login.touched && login.dirty)}"
+      >
+        <input
+          class="username"
+          type="text"
+          id="login_username"
+          placeholder="Логин"
+          name="login"
+          ngModel
+          required
+          #login="ngModel"
+        >
+        <span class="tooltip-content">
+            Логин не может быть пустым
+        </span>
+      </label>
+      <label
+        for="email"
+        aria-haspopup="true"
+        role="tooltip"
+        class="tooltip tooltip-validation tooltip-sm"
+        [ngClass]="{invalid: email.invalid && (email.touched && email.dirty)}"
+      >
+        <input
+          class="username"
+          type="email"
+          id="email"
+          placeholder="E-mail"
+          name="email"
+          ngModel
+          required
+          email
+          #email="ngModel"
+        >
+        <span class="tooltip-content">
+            Введите правильный e-mail
+        </span>
+      </label>
+      <label
+        for="login_password"
+        aria-haspopup="true"
+        role="tooltip"
+        class="tooltip tooltip-validation tooltip-sm"
+        [ngClass]="{invalid: password.invalid && (password.touched && password.dirty)}"
+      >
+        <input
+          class="password"
+          type="password"
+          id="login_password"
+          placeholder="Пароль"
+          name="password"
+          ngModel
+          required
+          minlength="6"
+          #password="ngModel"
+        >
+        <ng-container *ngIf="form.controls.password?.invalid">
+          <span
+            class="tooltip-content"
+            *ngIf="form.controls.password?.errors['minlength']">
+            Требуемая длина пароля {{form.controls.password?.errors['minlength']['requiredLength']}},
+            введено {{form.controls.password?.errors['minlength']['actualLength']}}
+          </span>
+          <span
+            class="tooltip-content"
+            *ngIf="form.controls.password?.errors['required']">
+            Пароль не может быть пустым
+          </span>
+        </ng-container>
+      </label>
+      <div class="form-group">
+        <label for="role" class="required">Выберите роль пользователя</label>
+        <div class="select">
+          <select
+            id="role"
+            name="role"
+            ngModel
+            required
+            #role="ngModel"
+          >
+            <option
+              *ngFor="let role of userRoles"
+              [value]="role"
+            >{{role}}</option>
+          </select>
+        </div>
+      </div>
+      
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="form.invalid"
+      >Регистрация пользователя</button>
+      <button
+        class="btn btn-info"
+        type="button"
+        (click)="goToLogin()"
+      >Войти в систему</button>
+    </div>
+  </form>
+</div>

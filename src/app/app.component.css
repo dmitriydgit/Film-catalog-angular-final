@@ -1,0 +1,40 @@
+.example-icon {
+    padding: 0 5px;
+  }
+  
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.header-links {
+	max-width: 50%;
+}
+
+.header-actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items:center;
+	text-align: right;
+	max-width: 50%;
+}
+
+.flex-spacer {
+	flex: 1 1 auto;
+}
+
+.header-img {
+	height:50px;
+	width:auto;
+	
+}
+
+.avatar {
+border-radius:50%;
+width:40px;
+height:40px;
+margin-right:10px;
+}
+.bg {
+	
+}

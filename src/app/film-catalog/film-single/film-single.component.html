@@ -1,0 +1,127 @@
+<!-- [ngStyle]="{background: 'url(https://image.tmdb.org/t/p/w500/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg)'}" -->
+
+<!-- https://image.tmdb.org/t/p/w500/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg -->
+<!-- <div *ngIf="film" class="film-single-wrapper" style="background-image: url('{{imgPath + film.backdrop_path}}')"></div> -->
+
+<!-- <div [ngStyle]="{'background' :'url('+imgPath+film.poster_path+')' }"></div> -->
+<!-- [ngStyle]="{'background' :'url('+imgPath+film.poster_path+')' }" -->
+<div class="single-cmp">
+	<div *ngIf="film" class="film-single-wrapper">
+		<!-- <img src="{{imgPath + film.backdrop_path}}" class="bg-image"> -->
+		<div class="film-single-left">
+			<img src="{{imgPath + film.poster_path}}" class="img-rounded" (click)="openHomePage(film?.homepage)">
+			<!-- <div class="actions">
+				<button *ngIf="!film.isBookmark;else book" mat-icon-button color="primary" (click)="bookFilm(film)">
+					<i class="material-icons">
+						bookmark
+					</i>
+				</button>
+				<button *ngIf="!film.isFavorite;else fab" mat-icon-button color="primary" (click)="starFilm(film)">
+					<i class="material-icons">star</i>
+				</button>
+			</div> -->
+		</div>
+		<div class="film-single-right">
+			<h1>{{film?.title}} </h1>
+			<div class="film-properties">
+				<div>
+					<p><b>Бюджет:</b> {{film?.budget}} USD</p>
+					<p><b>Дата выхода:</b> {{film?.release_date}}</p>
+				</div>
+				<div>
+					<p><b>Жанры:</b> {{genres}}</p>
+					<p><b>Длительность:</b> {{film?.runtime}} минут</p>
+				</div>
+
+			</div>
+
+			<p><b>{{film?.tagline}}</b></p>
+			<p>{{film?.overview}}</p>
+
+			<mat-tab-group>
+				<mat-tab label="Актеры">
+					<h1>Актеры</h1>
+
+					<div *ngIf="actors" class="actors-wrapper">
+						<div *ngFor="let actor of actors">
+							<mat-card class="actor-card">
+								<img class="actor-img" mat-card-image src="{{imgPath + actor.profile_path}}" alt="{{[actor].title}}" onerror="this.onerror=null;this.src='../../../assets/4.jpg'"
+								 title="{{actor.title}}">
+								<img class="actor-img-big" mat-card-image src="{{imgPath + actor.profile_path}}" alt="{{[actor].title}}"
+								 onerror="this.onerror=null;this.src='../../../assets/4.jpg'" title="{{actor.title}}">
+
+								<div class="spacer"></div>
+								<div class="actor-name">{{actor.name}}</div>
+
+							</mat-card>
+						</div>
+					</div>
+
+
+				</mat-tab>
+				<mat-tab label="Трейлеры">
+					<h1>Трейлеры</h1>
+					<div *ngFor="let video of videosLinks">
+						<!-- *ngFor="let link of videosLinks" -->
+						<!-- https://www.youtube.com/embed/ugzdiAnWPRo -->
+
+						<div class="videoFrame">
+							<iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(video)" width="640" height="360" frameborder="0"
+							 allowfullscreen="allowfullscreen"></iframe>
+						</div>
+					</div>
+				</mat-tab>
+				<mat-tab label="Кадры из фильма">
+					<h1>Кадры из фильма</h1>
+					<p>...</p>
+
+					<div *ngIf="images" class="image-wrapper">
+						<div *ngFor="let image of images">
+							<div class="image-card">
+								<img class="card-img-poster" src="{{imgPath + image.file_path}}" alt="{{[actor].title}}" onerror="this.onerror=null;this.src='../../../assets/4.jpg'"
+								 title="">
+								<img class="card-img-poster-big" src="{{imgPath + image.file_path}}" alt="{{[actor].title}}" onerror="this.onerror=null;this.src='../../../assets/4.jpg'"
+								 title="">
+
+
+							</div>
+						</div>
+					</div>
+
+				</mat-tab>
+			</mat-tab-group>
+
+		</div>
+	</div>
+	<div class="back-btn">
+		<button class="single-btn" mat-raised-button color="primary" (click)="goBack()">назад</button>
+	</div>
+</div>
+
+<!--
+	/*adult:false
+backdrop_path:"/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg"
+belongs_to_collection:{id: 86311, name: "Мстители (Коллекция)", poster_path: "/qJawKUQcIBha507UahUlX0keOT7.jpg", backdrop_path: "/zuW6fOiusv4X9nnW3paHGfXcSll.jpg"}
+budget:300000000
+genres:(4) [{…}, {…}, {…}, {…}]
+homepage:"http://marvel.com/movies/movie/223/avengers_infinity_war_part_1"
+id:299536
+imdb_id:"tt4154756"
+original_language:"en"
+original_title:"Avengers: Infinity War"
+overview:"Пока Мстители и их союзники продолжают защищать мир от различных опасностей, с которыми не смог бы справиться один супергерой, новая угроза возникает из космоса: Танос. Межгалактический тиран преследует цель собрать все шесть Камней Бесконечности — артефакты невероятной силы, с помощью которых можно менять реальность по своему желанию. Всё, с чем Мстители сталкивались ранее, вело к этому моменту — судьба Земли никогда ещё не была столь неопределённой."
+popularity:366.765
+poster_path:"/qIUFg6tzKeK5bUDguonWCAFceNB.jpg"
+production_companies:[{…}]
+production_countries:[{…}]
+release_date:"2018-04-25"
+revenue:2045186856
+runtime:149
+spoken_languages:[{…}]
+status:"Released"
+tagline:"Целая вселенная. Раз и навсегда"
+title:"Мстители: Война бесконечности"
+video:false
+vote_average:8.3
+vote_count:6921 */
+-->

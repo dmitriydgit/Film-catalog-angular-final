@@ -1,0 +1,57 @@
+<!-- <app-alerts></app-alerts> -->
+<mat-toolbar color="primary">
+	<mat-toolbar-row>
+		<div class="header-links" *ngIf="isLoggedIn">
+			<a mat-button routerLink="/" class="nav-link">
+				<img class="header-img" src="../assets/logo.svg" width="81" height="72">
+			</a>
+
+			<span class="example-spacer"></span>
+
+			<a mat-button *ngFor="let link of links" [routerLink]="link.path" [routerLinkActive]="link.active">
+				<mat-icon class="example-icon">{{link.icon}}</mat-icon>{{link.label}}
+			</a>
+		</div>
+
+		<div class="flex-spacer"> </div>
+		<div class="header-actions">
+			<img *ngIf="isLoggedIn" class='avatar' src="../assets/4.jpg" alt="avatar">
+			<div *ngIf="isLoggedIn" class="user-name">
+				<p>{{user_name}}</p>
+			</div>
+
+			<a mat-button *ngIf="!isLoggedIn">Войти</a>
+			<a mat-button *ngIf="isLoggedIn" (click)="logOut()">Выйти</a>
+		</div>
+
+
+	</mat-toolbar-row>
+</mat-toolbar>
+
+<div class="bg">
+	<router-outlet></router-outlet>
+
+</div>
+
+<!-- 
+<div class="main-container">
+	<header class="">
+		<div class=" " *ngIf="isLoggedIn">
+			<a routerLink="/" class="nav-link">
+				<span class="title">Film Catalog</span>
+			</a>
+			<a mat-button *ngFor="let link of links" [routerLink]="link.path" [routerLinkActive]="link.active">
+				<mat-icon class="nav-text">{{link.icon}}</mat-icon>{{link.label}}
+			</a>
+		</div>
+
+		<div class="header-actions">
+			<div>
+				<a *ngIf="!isLoggedIn">Войти</a>
+				<a *ngIf="isLoggedIn" (click)="logOut()">Выйти</a>
+			</div>
+		</div>
+
+	</header>
+	<router-outlet></router-outlet>
+</div> -->

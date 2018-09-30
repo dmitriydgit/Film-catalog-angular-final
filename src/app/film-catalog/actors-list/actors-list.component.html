@@ -1,0 +1,62 @@
+<!-- окно поиска -->
+<mat-card class="menu-card">
+	<mat-toolbar class="menu-toolbar">
+		<mat-toolbar-row>
+			<span class="example-spacer"></span>
+			<div>
+				<app-search (searchEmitter)="doSearch($event)"></app-search>
+			</div>
+			<span class="example-spacer"></span>
+		</mat-toolbar-row>
+	</mat-toolbar>
+</mat-card>
+
+<!--пагинатор -->
+
+<div class="paginator">
+	<paginator [totalResults]="pageInfo.totalResults" (pagEmitter)="doPagination($event)">
+	</paginator>
+</div>
+
+
+<!-- прогресс-бар -->
+<ng-progress [positionUsing]="'translate'" [direction]="'leftToRightIncreased'" [color]="'#ff0000'" [trickleSpeed]="300"
+ [showSpinner]="false" [thick]="true" [ease]="'easeInSine'"></ng-progress>
+
+<mat-spinner *ngIf="loading" class="spinner" color="accent"></mat-spinner>
+
+
+<!-- карточки -->
+
+<mat-grid-list cols="3" rowHeight="840px">
+	<mat-grid-tile colspan="1" *ngFor="let item of items">
+		<app-actor-item [actor]="item" [counter]="counter" (star)="makeStar($event)" [imgPath]="imgPath"></app-actor-item>
+	</mat-grid-tile>
+</mat-grid-list>
+
+<!-- кнопка загрузки дополнительных фильмов -->
+<!-- <div class="main-container">
+	<div class="fixer-container">
+		<button mat-raised-button color="primary" [disabled]="searching" (click)="setNextPage()">Загрузить еще</button>
+	</div>
+</div> -->
+
+
+<!-- 
+<span class="example-spacer"></span>
+
+<div class="bottom-list-panel-center">
+	<button mat-raised-button (click)="goFirstPage()">Первая</button>
+
+
+	<button color="warn" mat-raised-button [disabled]="isLastPage()" (click)="setNextPage()" class="show-more">Показать еще</button>
+
+
+	<button mat-raised-button (click)="goLastPage()">Последняя</button>
+</div> -->
+
+
+
+<!-- <paginator [totalPages]="pageInfo.totalPages" (pagEmitter)="doPagination($event)">
+
+</paginator> -->

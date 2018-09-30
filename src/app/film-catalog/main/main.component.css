@@ -1,0 +1,58 @@
+.wrapper{
+    margin: 50px auto;
+    width: 500px;
+}
+
+.text-center{
+	text-align: center;
+	margin:50px 30px;
+}
+
+.film-card{
+	width:150px;
+	height:350px;
+}
+
+.films-wrapper{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.actor-card{
+	width:150px;
+	height:350px;
+}
+
+.actors-wrapper{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#carusel-conteiner{
+	width: 100%;
+	margin: 5em auto;
+	padding:0;
+	background: #fff;
+
+}
+
+.items{
+	width: 200px;
+	height: 350px; 
+	margin:20px;
+	background: #fff;
+}
+
+#right, #left{
+	margin: 30px;
+
+}
+
+.carusel-pictures{
+width: 200px;
+height: 300px;
+}

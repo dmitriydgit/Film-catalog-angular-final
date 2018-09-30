@@ -1,0 +1,40 @@
+
+:host {
+	max-width: 360px;
+	
+}
+
+.film-header-image {
+  background-image: url('../../../assets/1.png');
+  background-size: cover;
+}
+
+.film-title{
+	text-align: left;
+	font-size: 16px;
+	font-weight: bold;
+
+}
+.card-header{
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: flex-start;
+	padding:20px;
+	height:72px;
+}
+.card-top{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.film-overwiev{
+	font-size: 16px;
+	height:72px;
+}
+.film-card{
+	width: 400px;
+	height: 760px;
+}

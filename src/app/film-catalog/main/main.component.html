@@ -1,0 +1,59 @@
+<div class="text-center">
+	<h1>Популярные фильмы</h1>
+</div>
+
+
+<div id="carusel-conteiner">
+	<div ng2-carouselamos class="slides-wrapper" [width]="1300" [items]="items" [$item]="itemTemplate" [$prev]="prevTemplate"
+	 [$next]="nextTemplate">
+
+	</div>
+
+	<ng-template #prevTemplate>
+		<img src="../../../assets/arrow-left-01.png" id="left" />
+	</ng-template>
+
+	<ng-template #nextTemplate>
+		<img src="../../../assets/arrow-right-01.png" id="right" />
+	</ng-template>
+
+	<ng-template let-item let-i="index" #itemTemplate>
+		<div class="items">
+			<img class="carusel-pictures" src="{{imgPath + item.poster_path}}" alt="{{item.title}}" onerror="this.onerror=null; this.src='../../../assets/4.jpg'">
+			<div class="film-title" #name>{{item.title}} ({{formatDate(item.release_date)}})</div>
+		</div>
+	</ng-template>
+</div>
+
+
+
+<div class="text-center">
+	<a href="/films">Смотреть еще...</a>
+
+</div>
+<hr>
+
+
+<div class="text-center">
+	<h1>Популярные актеры</h1>
+
+</div>
+
+
+<div class="actors-wrapper">
+	<div *ngFor="let actor of actors">
+		<mat-card class="actor-card">
+			<div>
+				<img mat-card-image src="{{imgPath + actor.profile_path}}" alt="{{[actor].title}}" onerror="this.onerror=null;this.src='../../../assets/4.jpg'"
+				 title="{{actor.title}}">
+				<div class="actor-name">{{actor.name}}</div>
+			</div>
+		</mat-card>
+	</div>
+</div>
+
+<div class="text-center">
+	<a href="/actors">Смотреть еще...</a>
+
+</div>
+<hr>

@@ -1,0 +1,15 @@
+.actor-name{
+	text-align: center !important;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.actor-header-image {
+  background-image: url('../../../assets/4.jpg');
+  background-size: cover;
+}
+
+.poster {
+padding:5px;
+border-radius: 5px;
+}

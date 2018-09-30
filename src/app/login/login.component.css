@@ -1,0 +1,64 @@
+/* .login-wrapper .login .login-group .btn {
+  margin-top: 2rem;
+} */
+
+.form-container {
+	
+  display: flex;
+	flex-direction: column;
+
+	justify-content: flex-start;
+	align-items: center;
+	
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width:25%;
+	
+	background-color: rgb(248, 246, 246);
+padding:30px;
+margin:20px;	
+}
+
+/* .form-container > * {
+  width: 100%;
+} */
+
+.bg {
+	height: 100vh;
+	width: 98.35vw;
+	/* background: url(../../assets/7.jpg) no-repeat center center fixed; */ 
+	position: relative;
+
+
+}
+
+.bg-img {
+	content:"";
+	height: 100vh;
+	width: 98.35vw;
+	position: absolute;
+	z-index: -1;
+	background: url(../../assets/7.jpg) no-repeat center center fixed;
+	background-size: cover;
+	  
+}
+
+/* body {
+	margin: 0;
+	font-family: Roboto, sans-serif;
+	
+background-image: url("assets/7.jpg");
+
+
+height: 100%; 
+
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+} */
