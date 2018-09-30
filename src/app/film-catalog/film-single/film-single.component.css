@@ -39,12 +39,15 @@
 	margin: 20px;
 	margin-left: 300px;
 	height: auto;
-	
 }
 
-.img-rounded{
-	/* margin-top: 20px; */
+.film-title {
+	display: flex;
+	flex-direction:row;
+	justify-content: space-between;
+	align-items: center;
 }
+
 .single-cmp{
 	margin: 20px;
 }
